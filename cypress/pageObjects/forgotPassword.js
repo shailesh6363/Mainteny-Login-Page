@@ -9,6 +9,11 @@ class ForgotPage{
 
         return cy.get('.input-full-width')
     }
+
+    goBackBtn(){
+
+        return cy.get('.back > .text')
+    }
 }
 
 export default ForgotPage;

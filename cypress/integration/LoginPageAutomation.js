@@ -243,6 +243,20 @@ describe('Functional Test Cases',function(){
 
 
     })
+
+    it("TC_Login_022_To verify login page is displayed after selecting Go Back To Login option from Forget Password page",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.selectForgotPassword().click()
+        cy.url().should('include','https://staging.mainteny.com/auth/forget-password')
+        logos.getResetPasswordTitle().should('contain.text','Reset Password')
+        password.getTokenBtn().should('be.disabled')
+        password.getTokenBtn().should('not.be.enabled')
+        password.goBackBtn().click()
+        cy.url().should('include','login')
+
+    })
     
 
 })
