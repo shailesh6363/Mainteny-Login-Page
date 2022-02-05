@@ -126,4 +126,12 @@ describe('Functional Test Cases',function(){
         logos.selectLoginBtn().should('be.disabled')
     })
 
+    it("TC_Login_013_To verify Login button is disabled after entering only password on login page",function(){
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setPassword().type('NoPasssword')
+        logos.selectLoginBtn().should('not.be.enabled')
+        logos.selectLoginBtn().should('be.disabled')
+    })
+
 })
