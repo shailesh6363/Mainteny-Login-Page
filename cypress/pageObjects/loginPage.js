@@ -10,6 +10,10 @@ selectDemoNavigation(){
     return cy.get('.blue-button')
 }
 
+selectDemoButton(){
+
+    return cy.get('.demo')
+}
 
 }
 

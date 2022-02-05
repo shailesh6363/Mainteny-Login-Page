@@ -40,6 +40,14 @@ describe('Functional Test Cases',function(){
         cy.url().should('include','login')
 
     })
+    it("TC_Login_005_To verify Demo Page is displayed after selecting Try Demo option from Login Page",function(){
 
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.selectDemoButton().click()
+        cy.url().should('include','dashboard')
+        cy.go('back')
+        cy.url().should('include','login')
+    })
 
 })
