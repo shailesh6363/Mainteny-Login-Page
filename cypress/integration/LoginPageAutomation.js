@@ -2,11 +2,13 @@
 import LoginPage from '../pageObjects/loginPage'
 import HomePage from'../pageObjects/homePage'
 import UserConsole from '../pageObjects/userConsole'
+import ForgotPage from '../pageObjects/forgotPassword'
 
 describe('Functional Test Cases',function(){
         const logos=new LoginPage()
         const home=new HomePage()
         const user=new UserConsole()
+        const password=new ForgotPage()
     it("TC_Login_001_To verify Login Page is displayed",function(){
 
         cy.visit(Cypress.env('url'))
@@ -177,6 +179,18 @@ describe('Functional Test Cases',function(){
         logos.selectForgotPassword().click()
         cy.url().should('include','https://staging.mainteny.com/auth/forget-password')
         logos.getResetPasswordTitle().should('contain.text','Reset Password')
+
+
+    })
+
+    it("TC_Login_018_To verify Get Token Button is disabled when email address field is blank on Forget Password page",function(){
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.selectForgotPassword().click()
+        cy.url().should('include','https://staging.mainteny.com/auth/forget-password')
+        logos.getResetPasswordTitle().should('contain.text','Reset Password')
+        password.getTokenBtn().should('be.disabled')
+        password.getTokenBtn().should('not.be.enabled')
 
 
     })
