@@ -87,7 +87,7 @@ describe('Functional Test Cases',function(){
         cy.visit(Cypress.env('url'))
         cy.url().should('include','login')
         logos.setEmailAddress().type('engineering@mainteny.com')
-        logos.setPassword().type('Mainteny@2021')
+        logos.setPassword().type('Mainteny@2021w')
         logos.selectLoginBtn().should('be.visible')
         logos.selectLoginBtn().click()
         logos.ValidateError().should('have.text','Bad username or password')
@@ -100,6 +100,18 @@ describe('Functional Test Cases',function(){
         cy.url().should('include','login')
         logos.setEmailAddress().type('email@gmail.com')
         logos.setPassword().type('mainteny@2022')
+        logos.selectLoginBtn().should('be.visible')
+        logos.selectLoginBtn().click()
+        logos.ValidateError().should('have.text','Bad username or password')
+        
+    })
+
+    it("TC_Login_0011_To verify warning is displayed after entering Invalid email address and Valid password on Login Page",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setEmailAddress().type('email@gmail.com')
+        logos.setPassword().type('NoPasssword')
         logos.selectLoginBtn().should('be.visible')
         logos.selectLoginBtn().click()
         logos.ValidateError().should('have.text','Bad username or password')
