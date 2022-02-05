@@ -81,4 +81,17 @@ describe('Functional Test Cases',function(){
         logos.selectLoginBtn().click()
         cy.url().should('not.include','https://app.mainteny.com/pages/dashboard')
     })
+
+    it("TC_Login_009_To verify warning is displayed after entering valid email address and invalid password on Login Page",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setEmailAddress().type('engineering@mainteny.com')
+        logos.setPassword().type('Mainteny@2021')
+        logos.selectLoginBtn().should('be.visible')
+        logos.selectLoginBtn().click()
+        logos.ValidateError().should('have.text','Bad username or password')
+        
+    })
+
 })

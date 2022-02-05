@@ -29,6 +29,11 @@ selectLoginBtn(){
     return cy.get(':nth-child(5) > .appearance-filled')
 }
 
+ValidateError(){
+
+    return cy.get('.error')
+}
+
 }
 
 export default LoginPage;
