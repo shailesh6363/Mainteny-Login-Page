@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/shailesh6363/Mainteny-Login-Page#readme",
   "devDependencies": {
-    "cypress": "^9.4.1"
+    "cypress": "^9.4.1",
+    "mocha": "^9.2.0",
+    "mochawesome": "^7.0.1"
   }
 }
