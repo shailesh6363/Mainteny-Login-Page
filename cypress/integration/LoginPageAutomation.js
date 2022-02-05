@@ -225,6 +225,24 @@ describe('Functional Test Cases',function(){
         logos.getResetPasswordTitle().should('contain.text','Set a new password')
 
     })
+
+    it("TC_Login_021_To verify warning is displayed after entering invalid email address in email address field on Forget Page",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.selectForgotPassword().click()
+        cy.url().should('include','https://staging.mainteny.com/auth/forget-password')
+        logos.getResetPasswordTitle().should('contain.text','Reset Password')
+        password.getTokenBtn().should('be.disabled')
+        password.getTokenBtn().should('not.be.enabled')
+        password.forgeotPasswordEmail().type('email@gmail.com')
+        password.getTokenBtn().should('not.be.disabled')
+        password.getTokenBtn().should('be.enabled')
+        password.getTokenBtn().click()
+        logos.ValidateError().should('have.text','Please check if you have an account with us')
+
+
+    })
     
 
 })
