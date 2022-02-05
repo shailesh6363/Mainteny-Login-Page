@@ -94,4 +94,16 @@ describe('Functional Test Cases',function(){
         
     })
 
+    it("TC_Login_0010_To verify warning is displayed after entering Invalid email address and Valid password on Login Page",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setEmailAddress().type('email@gmail.com')
+        logos.setPassword().type('mainteny@2022')
+        logos.selectLoginBtn().should('be.visible')
+        logos.selectLoginBtn().click()
+        logos.ValidateError().should('have.text','Bad username or password')
+        
+    })
+
 })
