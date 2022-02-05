@@ -61,4 +61,15 @@ describe('Functional Test Cases',function(){
         cy.url().should('not.include','https://app.mainteny.com/pages/dashboard')
     })
 
+    it("TC_Login_007_To verify User is not logged in after entering Invalid email address and valid password on Login Page",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setEmailAddress().type('engineering@mainteny.com')
+        logos.setPassword().type('mainteny@2022')
+        logos.selectLoginBtn().should('be.visible')
+        logos.selectLoginBtn().click()
+        cy.url().should('not.include','https://app.mainteny.com/pages/dashboard')
+    })
+
 })
