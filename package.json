@@ -1,0 +1,22 @@
+{
+  "name": "mainteny-login-page",
+  "version": "1.0.0",
+  "description": "Mainteny Login Page Automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shailesh6363/Mainteny-Login-Page.git"
+  },
+  "author": "Shailesh Waghole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shailesh6363/Mainteny-Login-Page/issues"
+  },
+  "homepage": "https://github.com/shailesh6363/Mainteny-Login-Page#readme",
+  "devDependencies": {
+    "cypress": "^9.4.1"
+  }
+}
