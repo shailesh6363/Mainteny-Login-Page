@@ -195,4 +195,18 @@ describe('Functional Test Cases',function(){
 
     })
 
+    it("TC_Login_019_To verify Get Token Button is enabled after entering email address in email filed on Forget Password page",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.selectForgotPassword().click()
+        cy.url().should('include','https://staging.mainteny.com/auth/forget-password')
+        logos.getResetPasswordTitle().should('contain.text','Reset Password')
+        password.getTokenBtn().should('be.disabled')
+        password.getTokenBtn().should('not.be.enabled')
+        password.forgeotPasswordEmail().type('engineering@mainteny.com')
+        password.getTokenBtn().should('not.be.disabled')
+        password.getTokenBtn().should('be.enabled')
+    })
+
 })
