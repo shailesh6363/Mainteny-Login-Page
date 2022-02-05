@@ -1,10 +1,12 @@
 /// <reference types="Cypress" />
 import LoginPage from '../pageObjects/loginPage'
 import HomePage from'../pageObjects/homePage'
+import UserConsole from '../pageObjects/userConsole'
 
 describe('Functional Test Cases',function(){
         const logos=new LoginPage()
         const home=new HomePage()
+        const user=new UserConsole()
     it("TC_Login_001_To verify Login Page is displayed",function(){
 
         cy.visit(Cypress.env('url'))
@@ -140,6 +142,18 @@ describe('Functional Test Cases',function(){
         cy.url().should('include','login')
         logos.selectLoginBtn().should('not.be.enabled')
         logos.selectLoginBtn().should('be.disabled')
+    })
+
+    it("TC_Login_015_To verify user should be logged in after entering valid email address and valid password",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setEmailAddress().type('engineering@mainteny.com')
+        logos.setPassword().type('Mainteny@2021')
+        logos.selectLoginBtn().should('be.visible')
+        logos.selectLoginBtn().click()
+        cy.url().should('include','https://staging.mainteny.com/pages/dashboard')
+        user.getUserName().should('contain.text','Hi Martin!')
     })
 
 })
