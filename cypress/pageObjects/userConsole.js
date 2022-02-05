@@ -15,6 +15,8 @@ class UserConsole{
 
         return cy.get('.context-menu > .menu-items > .menu-item > .ng-star-inserted')
     }
+
+    
 }
 
 export default UserConsole;

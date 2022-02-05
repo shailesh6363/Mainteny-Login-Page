@@ -34,6 +34,14 @@ ValidateError(){
     return cy.get('.error')
 }
 
+selectForgotPassword(){
+
+    return cy.get('.forgot-password > a')
+}
+getResetPasswordTitle(){
+
+    return cy.get('form.ng-untouched > .title')
+}
 }
 
 export default LoginPage;

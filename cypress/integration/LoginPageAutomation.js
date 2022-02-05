@@ -171,4 +171,14 @@ describe('Functional Test Cases',function(){
 
     })
 
+    it("TC_Login_017_To verify Forget Password page should be displayed after selecting Forgot Password option from login page",function(){
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.selectForgotPassword().click()
+        cy.url().should('include','https://staging.mainteny.com/auth/forget-password')
+        logos.getResetPasswordTitle().should('contain.text','Reset Password')
+
+
+    })
+
 })
