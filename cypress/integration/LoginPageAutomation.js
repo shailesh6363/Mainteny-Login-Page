@@ -156,4 +156,19 @@ describe('Functional Test Cases',function(){
         user.getUserName().should('contain.text','Hi Martin!')
     })
 
+    it("TC_Login_016_To verify user should be logged out after selecting Logout option from dashboard page",function(){
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setEmailAddress().type('engineering@mainteny.com')
+        logos.setPassword().type('Mainteny@2021')
+        logos.selectLoginBtn().should('be.visible')
+        logos.selectLoginBtn().click()
+        cy.url().should('include','https://staging.mainteny.com/pages/dashboard')
+        user.getUserName().should('contain.text','Hi Martin!')
+        user.selectUser().click()
+        user.selectLogOut().click()
+        cy.url().should('include','login')
+
+    })
+
 })
