@@ -118,4 +118,12 @@ describe('Functional Test Cases',function(){
         
     })
 
+    it("TC_Login_012_To verify Login button is disabled after entering only email address on login page",function(){
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.setEmailAddress().type('email@gmail.com')
+        logos.selectLoginBtn().should('not.be.enabled')
+        logos.selectLoginBtn().should('be.disabled')
+    })
+
 })
