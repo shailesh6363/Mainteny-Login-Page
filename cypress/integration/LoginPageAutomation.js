@@ -134,4 +134,12 @@ describe('Functional Test Cases',function(){
         logos.selectLoginBtn().should('be.disabled')
     })
 
+    it("TC_Login_014_To verify Login button is disabled when both email and password field are blank",function(){
+
+        cy.visit(Cypress.env('url'))
+        cy.url().should('include','login')
+        logos.selectLoginBtn().should('not.be.enabled')
+        logos.selectLoginBtn().should('be.disabled')
+    })
+
 })
